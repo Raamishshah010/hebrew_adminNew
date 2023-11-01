@@ -79,6 +79,18 @@ db.collection('categoryCollection').get().then((result) => {
 });
 
 
+let customRequest = null;
+
+function canReq(){
+
+    customRequest = true;
+}
+function canNotReq(){
+
+    customRequest = false;
+}
+
+
 
 
 function addProduct() {
@@ -86,10 +98,11 @@ function addProduct() {
 
     let name = document.getElementById('name').value;
     let price = document.getElementById('price').value;
+    let shipmentPrice = document.getElementById('shipmentPrice').value;
 
     let description = document.getElementById('description').value;
 
-    if (catName == "" || name === "" || price === "" || description === "" || dimensionArr <= 0) return window.alert('Please Fill All Fields');
+    if (catName == "" || name === "" || price === "" || description === "" || dimensionArr <= 0 || customRequest === null || shipmentPrice === "") return window.alert('Please Fill All Fields');
 
 
     $('#subBtn').html('Please Wait....');
@@ -134,6 +147,8 @@ function addProduct() {
                     price: parseInt(price),
                     description,
                     dimensionArr,
+                    customRequest,
+                    shipmentPrice,
                     image: downloadURL,
                     docID: prodRef.id,
                     date: new Date()

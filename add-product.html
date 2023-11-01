@@ -56,6 +56,11 @@
                                     <input type="number" id="price" placeholder="Enter Product Price">
                                 </div>
                                 
+                                <div class="formInput">
+                                    <label for="">Shipment Price</label>
+                                    <input type="number" id="shipmentPrice" placeholder="Enter Shipment Price">
+                                </div>
+                                
                                 
                                 <div class="formInput">
                                     <label for="">Height</label>
@@ -83,6 +88,16 @@
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right" id="catList">
                                         <!-- <button class="dropdown-item" type="button">Action</button> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="btn-group mt-5">
+                                        <button type="button" class="btn btn-theme dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="catNameText">
+                                        Custom Request
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                        <button class="dropdown-item" type="button" onclick="canReq()">Can Request</button>
+                                        <button class="dropdown-item" type="button" onclick="canNotReq()">Can Not Request</button>
                                         </div>
                                     </div>
 

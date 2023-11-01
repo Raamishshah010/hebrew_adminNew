@@ -58,6 +58,7 @@ body {
     color: #4a4a4a;
     text-decoration: none;
     margin-bottom: 2rem;
+    justify-content: flex-end;
 }
 .chatList:hover{
     display: flex;

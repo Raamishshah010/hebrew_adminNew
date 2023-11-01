@@ -5,7 +5,7 @@ db.collection('productCollection').orderBy('date', 'desc').get().then((result) =
 
     $('#productCount').html(result.docs.length);
     result.forEach((product) => {
-        console.log(product.data());
+        // console.log(product.data());
 
         $('#productTable').append(`
         <tr>
@@ -38,7 +38,7 @@ db.collection("categoryCollection").orderBy('date', 'desc').get().then((result) 
 
 db.collection('users').orderBy('createdAt', 'desc').get().then((result) => {
     result.forEach((user) => {
-        console.log(user.data());
+        // console.log(user.data());
 
         $('#userTable').append(`
         <tr>
@@ -48,6 +48,39 @@ db.collection('users').orderBy('createdAt', 'desc').get().then((result) => {
             <td>${user.data().name}</td>
         </tr>
         `)
+    })
+}).catch((err) => {
+    window.alert(err.message)
+});
+
+
+db.collection('chat').doc('kK9dAlv9f9N0EInWpIi3jlSp1EO2').collection('users').get().then((result) => {
+    let i = 0;
+    result.forEach((item) => {
+        // console.log(item.data());
+
+        $('#chatList').append(`
+        <a href="/chat.html?id=${item.data().otherID}" class="chatList">
+                                <div className="chatList_user">
+                                    <h5 id="userDetails${i}"></h5>
+                                    <p>${item.data().productName}</p>
+                                </div>
+                                <img id="userImage${i}" src="/assets/images/logo.svg" alt="">
+                            </a>
+        `);
+
+
+        i++;
+
+            db.collection('users').doc(item.data().otherID).get().then((result) => {
+            console.log(result.data().profileImage);
+                console.log(`#userDetails${(i - 1)}`);
+                $(`#userDetails${(i - 1)}`).html(result.data().name)
+                $(`#userImage${(i - 1)}`).attr('src' , result.data().profileImage)
+
+        }).catch((err) => {
+            window.alert(err.message)
+        });
     })
 }).catch((err) => {
     window.alert(err.message)
