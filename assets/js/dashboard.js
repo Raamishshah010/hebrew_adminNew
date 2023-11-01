@@ -72,15 +72,57 @@ db.collection('chat').doc('kK9dAlv9f9N0EInWpIi3jlSp1EO2').collection('users').ge
 
         i++;
 
-            db.collection('users').doc(item.data().otherID).get().then((result) => {
+        db.collection('users').doc(item.data().otherID).get().then((result) => {
             console.log(result.data().profileImage);
-                console.log(`#userDetails${(i - 1)}`);
-                $(`#userDetails${(i - 1)}`).html(result.data().name)
-                $(`#userImage${(i - 1)}`).attr('src' , result.data().profileImage)
+            console.log(`#userDetails${(i - 1)}`);
+            $(`#userDetails${(i - 1)}`).html(result.data().name)
+            $(`#userImage${(i - 1)}`).attr('src', result.data().profileImage)
 
         }).catch((err) => {
             window.alert(err.message)
         });
+    })
+}).catch((err) => {
+    window.alert(err.message)
+});
+
+
+
+
+
+//! ORDERS
+
+db.collection('orders').get().then((result) => {
+    $('#orderCount').html(result.docs.length)
+}).catch((err) => {
+    window.alert(err.message)
+});
+
+db.collection('orders').limit(10).get().then((result) => {
+
+    let i = 0;
+    result.forEach((item) => {
+
+        let date = new Date(item.data().createdAt)
+
+        $('#orders').append(`
+        <tr>
+        <td><a href="/order-details.html?id=${item.data().orderID}">View</a></td>
+            <th id="checkStatus${i}"></th>
+            <td>${date.toLocaleDateString()}</td>
+            <td>₪${item.data().totalPrice}</td>
+            <td>${item.data().products.length}</td>
+        </tr>
+        `);
+
+        if (item.data().status === "pending") {
+            $(`#checkStatus${i}`).append(`<span class="badge badge-danger">Pending</span>`)
+        } else {
+            $(`#checkStatus${i}`).append(`<span class="badge badge-success">Delivered</span>`)
+
+        }
+
+        i++;
     })
 }).catch((err) => {
     window.alert(err.message)
