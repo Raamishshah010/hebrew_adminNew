@@ -32,7 +32,8 @@
 
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" onclick="logout()">Logout</a>
+                                                <a class="dropdown-item" href="/profile.html">Setting</a>
+                        <a class="dropdown-item" onclick="logout()">Logout</a>
 
                         </div>
                     </div>
@@ -44,9 +45,13 @@
 
                         <div class="col-sm-12 col-md-12 col-lg-6">
                             <div class="headerTable">
+                                <a href="/product.html" style="float: left; font-size: 1.4rem; color: #4a4a4a;">
+                                    <i class='bx bx-arrow-back'></i>
+                                </a>
                                 <h5>Product Details</h5>
                                 <div class="productDetails" id="productDetails">
-                                    <!-- <div class="productImage">
+                                    <!-- <div class="productImage" style="position: relative;">
+                                        <img data-toggle="modal" data-target="#exampleModal" src="/assets/images/edit.png" style="position: absolute; right: 4px; top: 10px; cursor: pointer;" width="20px" alt="">
                                         <img src="https://firebasestorage.googleapis.com/v0/b/hebrow-ec2a4.appspot.com/o/images%2FCategoryImg1696335315418?alt=media&token=244c8650-2cde-437c-97fb-ebf23dda275f" width="100%" alt="">
                                     </div>
                                     <div class="productInfo">
@@ -55,6 +60,34 @@
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis veniam, omnis et recusandae similique voluptatum commodi obcaecati. Sed, rem pariatur quas velit ipsum voluptas, earum, explicabo eius deleniti commodi repellat.</p>
                                     </div> -->
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Edit Image</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="formInput">
+                                        <label for="">Product Image</label>
+                                        <div class="inputFile">
+                                            <input type="file" id="productImage" accept="image/jpeg, image/png" placeholder="Enter Product Name">
+                                        <span><i class='bx bxs-cloud-upload' ></i></span>
+                                        </div>
+
+                                <p id="fileName"></p>
+
+                                    </div>
+                                <button type="button" class="btn btn-primary" onclick="editImage()" id="editImageBtn">Edit Image</button>
+                                </div>
+                                
+                            </div>
                             </div>
                         </div>
 

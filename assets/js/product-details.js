@@ -8,7 +8,9 @@ db.collection('productCollection').doc(myParam).get().then((result) => {
     console.log(result.data());
 
     $('#productDetails').append(`
-    <div class="productImage">
+    <div class="productImage"  style="position: relative;">
+    <img data-toggle="modal" data-target="#exampleModal" src="/assets/images/edit.png" style="position: absolute; right: 4px; top: 10px; cursor: pointer;" width="20px" alt="">
+
         <img src="${result.data().image}" width="100%" alt="">
     </div>
     <div class="productInfo">
@@ -51,7 +53,8 @@ function editProduct() {
         description: updatedDescription
     }).then(() => {
         window.alert("Product updated successfully");
-        window.location.reload();
+        window.location.href = '/product.html'
+
     }).catch((err) => {
         window.alert(err.message)
     });
@@ -65,9 +68,9 @@ function deleteProduct() {
     let confirm = window.confirm('Are you sure you want to delete this product?');
 
     if (confirm) {
-        
-    $('#deleteSubBtn').html('Please Wait....');
-    $('#deleteSubBtn').addClass('disabled');
+
+        $('#deleteSubBtn').html('Please Wait....');
+        $('#deleteSubBtn').addClass('disabled');
 
         db.collection('productCollection').doc(myParam).delete().then(() => {
             window.alert("Product deleted successfully");
@@ -78,4 +81,78 @@ function deleteProduct() {
     } else {
         console.log('cancelled');
     }
+}
+
+
+
+
+
+
+
+let file = null;
+
+var fileButton = document.getElementById('productImage');
+fileButton.addEventListener('change', function (e) {
+
+    file = e.target.files[0];
+
+
+    $('#fileName').html(file.name);
+
+});
+
+function editImage() {
+
+     if(file === null) return window.alert('Please Select An Image')
+
+
+     $('#editImageBtn').html('Please Wait....');
+     $('#editImageBtn').addClass('disabled');
+
+    var storageRef = firebase.storage().ref('images/CategoryImg' + Date.now());
+
+    var uploadTask = storageRef.put(file);
+
+    uploadTask.on('state_changed',
+        (snapshot) => {
+            // Observe state change events such as progress, pause, and resume
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+            $('#progressBar').html(`Uploaded ${progress}%`);
+            console.log('Upload is ' + progress + '% done');
+            console.log(snapshot.state)
+            switch (snapshot.state) {
+                case firebase.storage.TaskState.PAUSED: // or 'paused'
+                    console.log('Upload is paused');
+                    break;
+                case firebase.storage.TaskState.RUNNING: // or 'running'
+                    console.log('Upload is running');
+                    break;
+            }
+        },
+        (error) => {
+            // Handle unsuccessful uploads
+            console.log(error)
+        },
+        () => {
+            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                console.log('File available at', downloadURL);
+
+
+                db.collection('productCollection').doc(myParam).update({
+                    image: downloadURL
+                }).then(() => {
+                    window.alert("Product updated successfully");
+                    window.location.href = '/product.html'
+
+                }).catch((err) => {
+                    window.alert(err.message)
+                });
+
+
+
+
+            })
+        })
 }
