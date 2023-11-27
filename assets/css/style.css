@@ -1,475 +1,445 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 :root {
-    --primaryColor: #6A8143;
+  --primaryColor: #6a8143;
 }
-
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    zoom: 99%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  zoom: 100%;
 }
-
 
 body {
-    font-size: 62.5%;
-    font-family: "Poppins", sans-serif;
-    background-color: #fafafa;
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  background-color: #fafafa;
 }
-
 
 .btn-link {
-    float: left;
-    position: absolute;
-    top: 3rem;
-    left: 2rem;
-    font-size: .8rem;
-    background-color: var(--primaryColor);
-    color: #fff;
-
+  float: left;
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+  font-size: 0.8rem;
+  background-color: var(--primaryColor);
+  color: #fff;
 }
 
-.btn-theme{
-    background-color: var(--primaryColor);
-    border-radius: 7px;
-    color: #fff;
-    padding: .5rem 2rem;
+.btn-theme {
+  background-color: var(--primaryColor);
+  border-radius: 7px;
+  color: #fff;
+  padding: 0.5rem 2rem;
 }
 
 .btn-link:hover {
-    float: left;
-    position: absolute;
-    top: 3rem;
-    left: 2rem;
-    font-size: .8rem;
-    background-color: var(--primaryColor);
-    color: #fff;
-    text-decoration: none;
-
+  float: left;
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+  font-size: 0.8rem;
+  background-color: var(--primaryColor);
+  color: #fff;
+  text-decoration: none;
 }
 
-
-.chatList{
-    display: flex;
-    gap: 1rem;
-    padding: 1rem;
-    color: #4a4a4a;
-    text-decoration: none;
-    margin-bottom: 2rem;
-    justify-content: flex-end;
-}
-.chatList:hover{
-    display: flex;
-    gap: 1rem;
-    padding: 1rem;
-    color: #4a4a4a;
-    text-decoration: none;
+.userDetails {
+  margin-bottom: 2rem;
 }
 
-.chatList img{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+.userDetails .userImage img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
 }
 
-.chatList h5{
-    font-size: 1rem;
-}
-
-
-.chatListMenu{
-    width: 300px;
-    height: 400px;
-    overflow-y: scroll;
-}
-
-
-.chatContainer{
-    padding: 1rem;
-    height: 100vh;
-
-}
-
-.chat{
-    flex: 1;
-    overflow-x: hidden;
-}
-.chatHeader{
-    display: flex;
-    align-items: center;
-    justify-content: space-between ;
-}
-
-.chat .chatHeader .chatHeader_image{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.chat .chatHeader .chatHeader_image h5{
-    font-size: .8rem;
-}
-.chat .chatHeader .chatHeader_image img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-
-}
-
-
-.chatContainer{
-    position: relative;
-    font-size: 1rem;
-}
-
-.chatContainer .chatInput{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    padding: 1rem 3rem;
-    border-radius: 1rem;
-    margin-right: 2rem;
-}
-
-.chatContainer .chatInput input{
-    background: #dfdfdf;
-    padding: 1rem;
-    width: 95%;
-    outline: none;
-    border: none;
-    border-radius: 8px;
-    /* background: transparent; */
-}
-.chatContainer .chatInput button{
-    padding: 1rem 2rem; 
-    background-color: var(--primaryColor);
-    color: #ffff;
-    border: none;
-    cursor: pointer;
-    transform: translateX(-1rem);
-}
-
-
-.chatMain{
-    height: 80vh;
-    overflow-y: scroll;
-}
-
-
-
-.chatSender{
-    display: flex;
-    margin-bottom: 4rem;
-    gap: 1rem;
-
-}
-
-
-.chatSenderImage img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.chatSenderMessageText{
-    /* margin-left: 3rem; */
-    background: #ffff;
-    max-width: 500px;
-    margin-top: .3rem;
+.orderDetails{
+    font-size: 1.2rem;
+    background: #f4f4f4;
     padding: 1rem;
     border-radius: 1rem;
-    font-size: 1rem;
-    box-shadow: 0 0 1rem rgba(205, 205, 205, 0.2);
 }
 
-.chatReciever{
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    text-align: end;
-    margin-bottom: 4rem;
-
+.chatList {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  color: #4a4a4a;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  justify-content: flex-end;
+}
+.chatList:hover {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  color: #4a4a4a;
+  text-decoration: none;
 }
 
-
-.chatRecieverImage img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+.chatList img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
-.chatRecieverMessageText{
-    /* margin-left: 3rem; */
-    background: var(--primaryColor);
-    max-width: 500px;
-    margin-top: .3rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    color: #fff;
-    font-size: 1rem;
-    box-shadow: 0 0 1rem rgba(205, 205, 205, 0.2);
+.chatList h5 {
+  font-size: 1rem;
+}
+
+.chatListMenu {
+  width: 300px;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.chatContainer {
+  padding: 1rem;
+  height: 100vh;
+}
+
+.chat {
+  flex: 1;
+  overflow-x: hidden;
+}
+.chatHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat .chatHeader .chatHeader_image {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chat .chatHeader .chatHeader_image h5 {
+  font-size: 0.8rem;
+}
+.chat .chatHeader .chatHeader_image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.chatContainer {
+  position: relative;
+  font-size: 1rem;
+}
+
+.chatContainer .chatInput {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  margin-right: 2rem;
+}
+
+.chatContainer .chatInput input {
+  background: #dfdfdf;
+  padding: 1rem;
+  width: 95%;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  /* background: transparent; */
+}
+.chatContainer .chatInput button {
+  padding: 1rem 2rem;
+  background-color: var(--primaryColor);
+  color: #ffff;
+  border: none;
+  cursor: pointer;
+  transform: translateX(-1rem);
+}
+
+.chatMain {
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.chatSender {
+  display: flex;
+  margin-bottom: 4rem;
+  gap: 1rem;
+}
+
+.chatSenderImage img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.chatSenderMessageText {
+  /* margin-left: 3rem; */
+  background: #ffff;
+  max-width: 500px;
+  margin-top: 0.3rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  box-shadow: 0 0 1rem rgba(205, 205, 205, 0.2);
+}
+
+.chatReciever {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  text-align: end;
+  margin-bottom: 4rem;
+}
+
+.chatRecieverImage img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.chatRecieverMessageText {
+  /* margin-left: 3rem; */
+  background: var(--primaryColor);
+  max-width: 500px;
+  margin-top: 0.3rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 0 1rem rgba(205, 205, 205, 0.2);
 }
 
 .main {
-    position: relative;
-    margin-block: 1rem;
-    display: flex;
-    padding: 1rem;
-    text-align: right;
+  position: relative;
+  margin-block: 1rem;
+  display: flex;
+  padding: 1rem;
+  text-align: right;
 }
 
 .sidebar {
-    position: fixed;
-    right: 1rem;
-    background-color: var(--primaryColor);
-    height: 97vh;
-    width: 250px;
-    bottom: .8rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem rgba(205, 205, 205, 0.2);
-
+  position: fixed;
+  right: 1rem;
+  background-color: var(--primaryColor);
+  height: 97vh;
+  width: 250px;
+  bottom: 0.8rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(205, 205, 205, 0.2);
 }
 
 .sidebar .sidebarLogo {
-    padding-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sidebar .sidebarLogo img {
-    width: 7rem;
-    height: 3rem;
+  width: 7rem;
+  height: 3rem;
 }
-
 
 .sidebar .sidebarLinks {
-    margin-top: 3rem;
-    font-size: 1rem;
+  margin-top: 3rem;
+  font-size: 1rem;
 }
-
-
 
 .sidebar .sidebarLinks .sidebarLink {
-    margin-top: 1.4rem;
-    padding-block: .5rem;
-
+  margin-top: 1.4rem;
+  padding-block: 0.5rem;
 }
-
 
 .sidebar .sidebarLinks .sidebarLink .sidebarIcon {
-    padding-right: 3rem;
-    color: #fff;
-    margin-left: 1rem;
-
+  padding-right: 3rem;
+  color: #fff;
+  margin-left: 1rem;
 }
-
 
 .sidebar .sidebarLinks .sidebarLink a {
-    text-decoration: none;
-    color: #fff;
-    width: 100%;
+  text-decoration: none;
+  color: #fff;
+  width: 100%;
 }
-
 
 .sidebar .sidebarLinks .sidebarLink.active {
-
-    background-color: #fff;
-    color: #111111;
-
+  background-color: #fff;
+  color: #111111;
 }
-
 
 .sidebar .sidebarLinks .sidebarLink.active a,
 .sidebar .sidebarLinks .sidebarLink.active .sidebarIcon {
-
-    background-color: #fff;
-    color: #111111;
-
+  background-color: #fff;
+  color: #111111;
 }
 
-
-
-.pills{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 3rem;
+.pills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
 }
 
-
-.pill{
-    background-color: #6a814337;
-    padding: .5rem;
-    border-radius: 1rem;
+.pill {
+  background-color: #6a814337;
+  padding: 0.5rem;
+  border-radius: 1rem;
 }
-
-
 
 /*! DASHBOARD */
 
-
 .dashboard {
-    max-width: 1150px;
-    width: 100%;
+  max-width: 1150px;
+  width: 100%;
 }
-
 
 .dashboard .dashboardNavbar {
-    float: left;
-    font-size: 1.6rem;
-    color: #6d6d6d;
-    text-align: right
+  float: left;
+  font-size: 1.6rem;
+  color: #6d6d6d;
+  text-align: right;
 }
 
-
 .dashboard .dashboardNavbar .dropdown-menu {
-
-    text-align: right
+  text-align: right;
 }
 
 .dashboardHeader {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 
-
 .dashboard .headerCard {
-    background-color: var(--primaryColor);
-    padding: 1rem 4rem 1rem 1rem;
-    color: #fff;
-    border-radius: 8px;
-    margin-top: 1rem;
+  background-color: var(--primaryColor);
+  padding: 1rem 4rem 1rem 1rem;
+  color: #fff;
+  border-radius: 8px;
+  margin-top: 1rem;
 }
 
 .dashboard .headerCard h5 {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .dashboard .headerCard h1 {
-    font-size: 2rem;
-    font-weight: 600;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .dashboard .headerCard p {
-    font-size: .7rem;
-    font-weight: 300;
-    margin-top: 2rem;
+  font-size: 0.7rem;
+  font-weight: 300;
+  margin-top: 2rem;
 }
-
 
 .dashboard .headerTable {
-    margin-top: 2rem;
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: .7rem;
+  margin-top: 2rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.7rem;
+  /* max-width: 600px; */
+  width: 100%;
+    overflow-x: scroll;
 }
-
 
 .dashboard .headerTable h5 {
-    margin-bottom: 2rem;
-    font-size: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
 }
 
-
 .dashboard .table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #dee2e600;
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e600;
 }
 
 .table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #dee2e600;
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e600;
 }
 
 .table td,
 .table th {
-    padding: 0.75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e600;
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e600;
 }
 
-
 .dashboard .formInput {
-    display: flex;
-    flex-direction: column;
-    font-size: 1rem;
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  margin-top: 2rem;
 }
 
 .dashboard .formInput input {
-    text-align: right;
-    padding: 0.6rem;
-    font-size: 1rem;
-    outline: none;
-    float: right;
+  text-align: right;
+  padding: 0.6rem;
+  font-size: 1rem;
+  outline: none;
+  float: right;
 }
 
 .dashboard .formInput textarea {
-    text-align: right;
-    padding: 0.6rem;
-    font-size: 1rem;
-    outline: none;
-    float: right;
+  text-align: right;
+  padding: 0.6rem;
+  font-size: 1rem;
+  outline: none;
+  float: right;
 }
 
-
-.dashboard .inputFile{
-    position: relative;
-    width: 100%;
-    height: 20vh;
-    background-color: #fafafa;
-    margin-bottom: 2rem;
-    
+.dashboard .inputFile {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  background-color: #fafafa;
+  margin-bottom: 2rem;
 }
 
-.dashboard .inputFile input{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    z-index: 1;
-
+.dashboard .inputFile input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 1;
 }
 
-.dashboard .inputFile i{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 2rem;
-    color: #4a4a4a;
+.dashboard .inputFile i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+  color: #4a4a4a;
 }
 
-
-.tableResponsive{
-    font-size: 1rem;
+.tableResponsive {
+  font-size: 1rem;
 }
 
-.tableResponsive a{
-    background-color: var(--primaryColor);
-    color: #fff;
-    padding: .3rem 2rem;
-    border-radius: 4px;
-    text-decoration: none;
+.tableResponsive a {
+  background-color: var(--primaryColor);
+  color: #fff;
+  padding: 0.3rem 2rem;
+  border-radius: 4px;
+  text-decoration: none;
 }
 
-
-.dashboard .productInfo{
-    margin-top: 2rem;
-    font-size: 1rem;
+.dashboard .productInfo {
+  margin-top: 2rem;
+  font-size: 1rem;
 }
 
-.dashboard .productInfo h6{
-    margin-top: 2rem;
-    font-size: 1.4rem;
+.dashboard .productInfo h6 {
+  margin-top: 2rem;
+  font-size: 1.4rem;
 }
 
-.dashboard .productInfo h6{
-    margin-top: 2rem;
-    font-size: 1.4rem;
+.dashboard .productInfo h6 {
+  margin-top: 2rem;
+  font-size: 1.4rem;
 }

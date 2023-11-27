@@ -131,6 +131,7 @@ function sendMessage(){
 
     console.log(date);
     let chatRef = db.collection('chat').doc(myID).collection('users').doc(myParam).collection('messages').doc(date.toString());
+    let toChatRef = db.collection('chat').doc(myParam).collection('users').doc(myID).collection('messages').doc(date.toString());
     
     
     let data = {
@@ -141,9 +142,17 @@ function sendMessage(){
         time: date
     }
 
+    
+
     chatRef.set(data).then(() => {
-        
+
+        toChatRef.set(data).then(() => {
         window.location.reload()
+            
+        }).catch((err) => {
+            window.alert(err.message)
+        });
+        
     }).catch((err) => {
         window.alert(err.message)
     });
