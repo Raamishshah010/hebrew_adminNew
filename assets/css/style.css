@@ -8,7 +8,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  zoom: 100%;
+  zoom: 99.6%;
 }
 
 body {
@@ -166,6 +166,7 @@ body {
 
 .chatSender {
   display: flex;
+  align-items: center;
   margin-bottom: 4rem;
   gap: 1rem;
 }
@@ -189,6 +190,7 @@ body {
 
 .chatReciever {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
   gap: 1rem;
   text-align: end;

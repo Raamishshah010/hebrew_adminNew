@@ -66,9 +66,13 @@ function scrollToBottom() {
 function appendMessagesToUI(messages) {
     // Sort the messages in ascending order based on their 'time' field
     messages.sort((a, b) => a.time - b.time);
+
   
     // Append the sorted messages to the UI
     messages.forEach((item) => {
+
+    let date = new Date(parseInt(item.time))
+        console.log(typeof item.time);
         if (item.sendTo === myID) {
             $('#allChats').append(`
             <div class="chatSender">
@@ -77,12 +81,13 @@ function appendMessagesToUI(messages) {
 
                         </div>
                         <div class="chatSenderMessage">
+                            <span style="font-size: 10px">${date.toString().slice(4, 15)}</span>
                             <h5>${userName}</h5>
-                            <div class="chatSenderMessageText">
+                            <div class="chatSenderMessageText mb-1">
 
                             <p>${item.message}</p>
-
                             </div>
+                            <span class="mt-2" style="font-size: 10px">${date.toString().slice(15, 21)}</span>
                         </div>
                         
                     </div>
@@ -92,11 +97,15 @@ function appendMessagesToUI(messages) {
             <div class="chatReciever">
                        
                         <div class="chatRecieverMessage">
+                        <span style="font-size: 10px">${date.toString().slice(4, 15)}</span>
+
                             <h5>Admin</h5>
-                            <div class="chatRecieverMessageText">
+                            <div class="chatRecieverMessageText mb-2">
 
                                 <p>${item.message}</p>
                             </div>
+                            <span class="mt-2" style="font-size: 10px">${date.toString().slice(15, 21)}</span>
+
                         </div>
 
                         <div class="chatRecieverImage">
@@ -139,7 +148,7 @@ function sendMessage(){
         messageType: "Text",
         sendFrom: myID,
         sendTo: myParam,
-        time: date
+        time: parseInt(date)
     }
 
     
@@ -162,3 +171,9 @@ function sendMessage(){
 
 
 
+function runFunction(event) {
+    if (event.key === "Enter") {
+      // Call your function here
+      sendMessage()
+    }
+  }

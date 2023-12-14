@@ -7,6 +7,7 @@ db.collection('users').get().then((result) => {
         $('#users').append(`
         
         <tr>
+        <td><a href="/user-details.html?id=${item.data().userID}">View</a></td>
             <th scope="row"><img id="profileImage${i}" src="${item.data().profileImage}" width="40px"/></th>
             <td>${item.data().name}</td>
             <td>${item.data().email}</td>

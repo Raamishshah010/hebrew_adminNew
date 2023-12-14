@@ -83,7 +83,7 @@ function editCategory() {
                         image: downloadURL
                     }).then(() => {
                         window.alert('Updated Successfully');
-                        window.location.reload();
+                        window.location.href = '/category.html'
                     }).catch((err) => {
                         window.alert(err.message);
                     });

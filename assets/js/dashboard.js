@@ -36,23 +36,56 @@ db.collection("categoryCollection").orderBy('date', 'desc').get().then((result) 
 
 //! USERS
 
-db.collection('users').orderBy('createdAt', 'desc').get().then((result) => {
-    result.forEach((user) => {
-        // console.log(user.data());
+// db.collection('users').orderBy('createdAt', 'desc').get().then((result) => {
+//     result.forEach((user) => {
+//         // console.log(user.data());
 
-        $('#userTable').append(`
+//         $('#userTable').append(`
+//         <tr>
+//             <td><a href="/user-details.html?id=${user.data().userID}">View</a></td>
+//             <td>${user.data().phoneNumber}</td>
+//             <td>${user.data().email}</td>
+//             <td>${user.data().name}</td>
+//         </tr>
+//         `)
+//     })
+// }).catch((err) => {
+//     window.alert(err.message)
+// });
+
+db.collection('users').orderBy('createdAt', 'desc').get().then((result) => {
+    let i = 0;
+
+
+    result.forEach((item) => {
+
+        $('#users').append(`
+        
         <tr>
-            <td><a href="/user-details.html?id=${user.data().userID}">View</a></td>
-            <td>${user.data().phoneNumber}</td>
-            <td>${user.data().email}</td>
-            <td>${user.data().name}</td>
+        <td><a href="/user-details.html?id=${item.data().userID}">View</a></td>
+            <th scope="row"><img id="profileImage${i}" src="${item.data().profileImage}" width="40px"/></th>
+            <td>${item.data().name}</td>
+            <td>${item.data().email}</td>
+            <td>${item.data().phoneNumber}</td>
+            <td>${item.data().companyName}</td>
         </tr>
-        `)
+        
+        `);
+
+        if (item.data().profileImage === "") {
+            $(`#profileImage${i}`).attr('src' , '/assets/images/logo.svg')
+        }
+
+        i++;
     })
 }).catch((err) => {
     window.alert(err.message)
 });
 
+
+
+
+//!CHAT
 
 db.collection('chat').doc('kK9dAlv9f9N0EInWpIi3jlSp1EO2').collection('users').get().then((result) => {
     let i = 0;
@@ -65,22 +98,37 @@ db.collection('chat').doc('kK9dAlv9f9N0EInWpIi3jlSp1EO2').collection('users').ge
                                     <h5 id="userDetails${i}"></h5>
                                     <p>${item.data().productName}</p>
                                 </div>
-                                <img id="userImage${i}" src="/assets/images/logo.svg" alt="">
+                                <img id="userImage${i}" src="" alt="">
                             </a>
         `);
 
 
-        i++;
 
         db.collection('users').doc(item.data().otherID).get().then((result) => {
             console.log(result.data().profileImage);
-            console.log(`#userDetails${(i - 1)}`);
+            console.log(`#userDetails${i}`);
             $(`#userDetails${(i - 1)}`).html(result.data().name)
-            $(`#userImage${(i - 1)}`).attr('src', result.data().profileImage)
+            // $(`#userImage${(i - 1)}`).attr('src', result.data().profileImage);
+
+
+
+            if(result.data().profileImage !== ""){
+                $(`#userImage${i}`).attr('src', result.data().profileImage)
+
+                console.log(`#userImage${i}`);
+            }else{
+                $(`#userImage${i}`).attr('src', '/assets/images/logo.svg');
+                console.log(`#userImage${i}`);
+                
+
+            }
 
         }).catch((err) => {
             window.alert(err.message)
         });
+
+        i++;
+
     })
 }).catch((err) => {
     window.alert(err.message)

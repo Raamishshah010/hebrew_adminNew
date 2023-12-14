@@ -23,6 +23,7 @@ db.collection('productCollection').doc(myParam).get().then((result) => {
 
     $('#name').val(result.data().name)
     $('#price').val(result.data().price)
+    $('#shipmentPrice').val(result.data().shipmentPrice)
     $('#description').val(result.data().description)
 
 
@@ -40,6 +41,7 @@ function editProduct() {
     let updatedName = $('#name').val();
     let updatedPrice = $('#price').val();
     let updatedDescription = $('#description').val();
+    let updatedshipmentPrice = $('#shipmentPrice').val()
 
     if (updatedName === "" || updatedPrice === "" || updatedDescription === "") return window.alert("Please enter all fields");
 
@@ -50,7 +52,8 @@ function editProduct() {
     db.collection('productCollection').doc(myParam).update({
         name: updatedName,
         price: parseInt(updatedPrice),
-        description: updatedDescription
+        description: updatedDescription,
+        shipmentPrice: parseInt(updatedshipmentPrice)
     }).then(() => {
         window.alert("Product updated successfully");
         window.location.href = '/product.html'

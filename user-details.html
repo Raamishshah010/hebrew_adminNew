@@ -44,14 +44,16 @@
                     <div class="row">
 
                         <div class="col-sm-12 col-md-12 col-lg-6">
+                            
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6">
                             <div class="headerTable">
-                                <a href="/product.html" style="float: left; font-size: 1.4rem; color: #4a4a4a;">
+                                <a href="/users.html" style="float: left; font-size: 1.4rem; color: #4a4a4a;">
                                     <i class='bx bx-arrow-back'></i>
                                 </a>
                                 <h5>Product Details</h5>
-                                <div class="productDetails" id="productDetails">
+                                <div class="productDetails" id="userDetails">
                                     <!-- <div class="productImage" style="position: relative;">
-                                        <img data-toggle="modal" data-target="#exampleModal" src="/assets/images/edit.png" style="position: absolute; right: 4px; top: 10px; cursor: pointer;" width="20px" alt="">
                                         <img src="https://firebasestorage.googleapis.com/v0/b/hebrow-ec2a4.appspot.com/o/images%2FCategoryImg1696335315418?alt=media&token=244c8650-2cde-437c-97fb-ebf23dda275f" width="100%" alt="">
                                     </div>
                                     <div class="productInfo">
@@ -63,70 +65,7 @@
                             </div>
                         </div>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Edit Image</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="formInput">
-                                        <label for="">Product Image</label>
-                                        <div class="inputFile">
-                                            <input type="file" id="productImage" accept="image/jpeg, image/png" placeholder="Enter Product Name">
-                                        <span><i class='bx bxs-cloud-upload' ></i></span>
-                                        </div>
-
-                                <p id="fileName"></p>
-
-                                    </div>
-                                <button type="button" class="btn btn-primary" onclick="editImage()" id="editImageBtn">Edit Image</button>
-                                </div>
-                                
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="headerTable">
-                                <h5>Edit Product</h5>
-                                
-                                <div class="formInput">
-                                    <label for="">Name</label>
-                                    <input type="text" id="name" placeholder="Enter Product Name">
-                                </div>
-                                
-                                <div class="formInput">
-                                    <label for="">Price</label>
-                                    <input type="number" id="price" placeholder="Enter Product Price">
-                                </div>
-                                
-                                
-                                <div class="formInput">
-                                    <label for="">Shipment Price</label>
-                                    <input type="number" id="shipmentPrice" placeholder="Enter Shipment Price">
-                                </div>
-                                
-                                
-
-                                
-                                <div class="formInput">
-                                    <label for="">Description</label>
-                                    <textarea id="description" cols="30" rows="10"></textarea>
-                                </div>
-                                
-
-                                <div class="formButton mt-5">
-                                    <button class="btn btn-theme" id="subBtn" onclick="editProduct()">Edit</button>
-                                    <button class="btn btn-danger" id="deleteSubBtn" onclick="deleteProduct()">Delete</button>
-                                </div>
-
-                            </div>
-                        </div>
+                  
 
 
 
@@ -157,7 +96,7 @@
                     <span class="sidebarIcon"><i class='bx bxs-box'></i></span>
                 </div>
 
-                <div class="sidebarLink active">
+                <div class="sidebarLink">
                     <a href="/product.html">Products</a>
                     <span class="sidebarIcon"><i class='bx bxs-cart'></i></span>
                 </div>
@@ -167,7 +106,7 @@
                     <span class="sidebarIcon"><i class='bx bxs-offer'></i></span>
                 </div>
 
-                <div class="sidebarLink">
+                <div class="sidebarLink active">
                     <a href="/users.html">Users</a>
                     <span class="sidebarIcon"><i class='bx bxs-user'></i></span>
                 </div>
@@ -188,7 +127,7 @@
 
     
     <script src="/assets/js/firebase.js"></script>
-    <script src="/assets/js/product-details.js"></script>
+    <script src="/assets/js/user-details.js"></script>
 
 </body>
 </html>
