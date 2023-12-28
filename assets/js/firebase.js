@@ -18,3 +18,14 @@ let db = firebase.firestore();
 function logout(){
     window.location.href = '/index.html'
 }
+
+
+
+function toggleMenu(){
+    $('#sideBar').css('transform', 'translateX(0)')
+}
+
+$('#toggleBackIcon').on('click', () =>{
+    $('#sideBar').css('transform', 'translateX(4000px)')
+
+})
