@@ -14,6 +14,15 @@ db.collection('orders').doc(myParam).get().then((result) => {
     
     <p>Delivery Price: <strong>₪${result.data().deliveryFee}</strong></p>
     <p>Total Price: <strong>₪${result.data().totalPrice}</strong></p>
+    <div style="margin-block: 40px; ">
+                <div style="margin-bottom: 30px;">
+                    <input class="px-2" type="number" id="adminDeliveryPrice" placeholder="Delivery Price"/>
+                </div>
+                <div>
+                    <input class="px-2" type="number" id="adminTotalPrice" placeholder="Total Price"/>
+                </div>
+            
+            </div>
     <p>Status : <span id="orderStatus"></span></p>
 
     <button class="btn btn-theme" id="deliverBtn" onclick="changeStatus()">Deliver</button>
@@ -54,6 +63,7 @@ db.collection('orders').doc(myParam).get().then((result) => {
             <p>₪${item.productData.price}</p>
             <p>Shipment Price: ₪${item.productData.shipmentPrice}</p>
             <p>Quantity: ${item.quantity}</p>
+            
             <p>Requested Note: <span id="requestedNote${i}"></span></p>
         </div>
     </div>
@@ -98,11 +108,18 @@ db.collection('orders').doc(myParam).get().then((result) => {
 
 
     function changeStatus(){
-        
 
+
+        let adminTotalPrice = document.getElementById('adminTotalPrice').value;
+        let adminDeliveryPrice = document.getElementById('adminDeliveryPrice').value;
+
+        if (adminTotalPrice === "" || adminDeliveryPrice === "") return window.alert('Please Enter Admin Total And Delivery Price')
 
         db.collection('orders').doc(myParam).update({
-            status: "delivered"
+            status: "delivered",
+            adminTotalPrice,
+            adminDeliveryPrice
+
         }).then(() => { 
             window.alert('Order Updated Successfully');
             window.location.reload()
